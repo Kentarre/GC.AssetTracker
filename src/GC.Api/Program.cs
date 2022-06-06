@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSignalR();
 builder.Services.AddTransient<IHandleMessages<CoordinatesChangedEvent>, HandleMessge>();
 builder.Services.AddTransient<ITwilioHelper, TwilioHelper>();
-builder.Services.AddHttpClient("client", c => c.BaseAddress = new Uri(""));
+builder.Services.AddHttpClient<TwilioHelper>();
 builder.Services.AddHostedService<RedisClientRegistrator>();
 
 var app = builder.Build();

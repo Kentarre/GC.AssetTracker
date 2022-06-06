@@ -2,16 +2,15 @@ namespace GC.Api.Helpers;
 
 public class TwilioHelper : ITwilioHelper
 {
-    private readonly IHttpClientFactory _factory;
+    private readonly HttpClient _client;
 
-    public TwilioHelper(IHttpClientFactory factory)
+    public TwilioHelper(HttpClient factory)
     {
-        _factory = factory;
+        _client = factory;
     }
-    
+
     public async Task SendNotification(Guid assetId)
     {
-        var client = _factory.CreateClient("https:");
-        //client.SendAsync()
+        await _client.GetAsync(""); //bla bla bla
     }
 }
